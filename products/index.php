@@ -7,7 +7,9 @@
  */
 
 session_start();
-
+if (isset($_GET['success'])) {
+    echo 'Tovar qo`shildi'."<br>";
+}
 if (isset($_SESSION['userEmail'])) {
 
 

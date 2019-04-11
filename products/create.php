@@ -36,8 +36,12 @@ if (isset($_SESSION['userEmail'])) {
         $productDescription = htmlspecialchars(trim($_POST['productDescription']));
         $sql = "insert into products (title, description) values('$productName','$productDescription')";
 
-        $asd = $db->exec($sql);
+        $save = $db->exec($sql);
         $database->closeConnection();
+        if($save){
+            header("Location: index.php?success");
+
+        }
 
         }
         ?>
