@@ -5,13 +5,13 @@
  * Date: 4/11/19
  * Time: 10:48 PM
  */
+session_start();
 
-include_once '../config/config.php';
-$database = new DBConnect();
-$db = $database->openConnection();
 
 if (isset($_SESSION['userEmail'])) {
-
+    include_once '../config/config.php';
+    $database = new DBConnect();
+    $db = $database->openConnection();
 
 
     $sql = "select email from users where email = '{$_SESSION['userEmail']}'";
