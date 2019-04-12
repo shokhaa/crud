@@ -7,7 +7,6 @@ session_start();
  * Date: 4/11/19
  * Time: 8:40 PM
  */
-print_r($_SESSION);
 include_once 'config/config.php';
 
 if (isset($_SESSION['userEmail'])) {
@@ -21,7 +20,7 @@ if (isset($_SESSION['userEmail'])) {
 //    die();
     $database->closeConnection();
     if ($_SESSION['userEmail'] == $result[0]) {
-        header("Location: curd/index.php");
+        header("Location: product/index.php");
 
     }
 }
