@@ -8,7 +8,13 @@
 
 session_start();
 if (isset($_GET['success'])) {
-    echo 'Tovar qo`shildi'."<br>";
+    echo 'Tovar qo`shildi' . "<br>";
+}
+if (isset($_GET['update'])) {
+    echo 'To`var o`zgartirildi' . "<br>";
+}
+if (isset($_GET['delete'])) {
+    echo 'To`var o`chirildi' . "<br>";
 }
 if (isset($_SESSION['userEmail'])) {
 
@@ -56,35 +62,44 @@ if (isset($_SESSION['userEmail'])) {
                 <th>№</th>
                 <th>Product name</th>
                 <th>Description</th>
+                <th>Settings</th>
+
                 <?
-                $i = 0;
-                foreach ($products as $item) {
-                    $i++;
+                if ($products) {
+                    $i = 0;
+                    foreach ($products as $item) {
+                        $i++;
 
-                    echo "<tr>";
-                    echo "<td>{$i}</td>";
-                    echo "<td>{$item['title']}</td>";
-                    echo "<td>{$item['description']}</td>";
-                    echo "</tr>";
+                        echo "<tr>";
+                        echo "<td>{$i}</td>";
+                        echo "<td>{$item['title']}</td>";
+                        echo "<td>{$item['description']}</td>";
+                        echo "<td>
+                            <a href='../products/update.php?id={$item['id']}'>Up</a> | 
+                            <a href='../products/delete.php?id={$item['id']}'>Del</a> 
+                          </td>";
+                        echo "</tr>";
 
-                }
+                    }
+                }else
+                echo "<tr><td colspan='4'>Toavar yo`q</td></tr>"
                 ?>
 
             </table>
 
 
-
-
-            <div></div>
+            <div>
+                <a href="/logout.php">Chiqish</a>
+            </div>
         </div>
         </body>
         </html>
         <?
     }
-}else{
+} else {
     echo "ro`yxatdan o`tmagansiz!";
     header("refresh: 1; url=/index.php");
 
 }
-    ?>
+?>
 

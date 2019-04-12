@@ -116,5 +116,9 @@ if (isset($_SESSION['userEmail'])) {
         </html>
         <?
     }
+}else {
+    echo "ro`yxatdan o`tmagansiz!";
+    header("refresh: 1; url=/index.php");
+
 }
 ?>
