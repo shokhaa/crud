@@ -8,6 +8,9 @@ session_start();
  * Date: 4/11/19
  * Time: 9:43 PM
  */
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include_once 'config/config.php';
 //print_r($_SESSION);
 //die();
