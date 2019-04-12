@@ -61,13 +61,13 @@ if (isset($_POST["submit"])) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <body>
 <div class="demo-content">
     <?php
     if (!empty($response)) {
         ?>
-c        <?php
+        <?php
         header("refresh: 1; url=products/index.php");
 //        header("Location: ");
 
